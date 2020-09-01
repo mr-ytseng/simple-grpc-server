@@ -1,0 +1,20 @@
+
+syntax = "proto3";
+
+service FileHandler {  
+  rpc set(File) returns (File){}
+  rpc ul(stream Content) returns (File) {}  
+  rpc dl( File ) returns (stream Content) {}  
+}
+
+message File {
+  string src = 1;
+  string dst = 2;  
+  int32 size = 3;
+}
+
+message Content {
+  bytes data = 1;
+}
+
+ 
